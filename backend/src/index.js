@@ -1,7 +1,6 @@
-const express = require ('express');
+import { port } from './config.js';
+import app from './app.js';
 
-const app = express();
+app.listen(port)
 
-app.listen(3000)
-
-console.log('servidor en el puerto 3000')
+console.log('servidor en el puerto ' + port)
