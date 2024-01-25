@@ -1,6 +1,16 @@
-import { port } from './config';
+import { PORT } from './config';
 import app from './app';
+import AppDataSource from './db/pg.pool';
 
-app.listen(port)
+// ejecuta db
+async function main() {
+    try {
+        await AppDataSource.initialize();
+        app.listen(PORT);
+        console.log('servidor en el puerto ' + PORT);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-console.log('servidor en el puerto ' + port);
+main();
