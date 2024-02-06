@@ -7,6 +7,8 @@ import { parseToNumber } from '../utils/global.utils';
 export async function getAllUsers(req: Request, res: Response) {
     const users = await userService.getAllUsers();
 
+    console.log(users);
+
     // retorno el response handler creado.
     return ResponseHandler(res, new ResponseOk(users));
 }
