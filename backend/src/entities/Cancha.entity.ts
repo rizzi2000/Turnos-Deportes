@@ -1,6 +1,7 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import Deporte from "./Deporte.entity";
 import Club from "./Club.entity";
+import Reserva from "./Reserva.entity";
 
 @Entity({ name: 'cancha' })
 export default class Cancha extends BaseEntity{
@@ -21,4 +22,10 @@ export default class Cancha extends BaseEntity{
 
     @ManyToOne(() => Deporte, deporte => deporte.canchas)
     deporte: Deporte;
+
+    @OneToMany(() => Reserva, reserva => reserva.cancha)
+    cancha: Cancha;
+
+    @OneToMany(() => Reserva, reserva => reserva.usuario, { eager: true })
+    reservas: Reserva[];
 }

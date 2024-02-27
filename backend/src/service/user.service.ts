@@ -1,5 +1,5 @@
 import { NotFoundError } from "../httpResponse/customError";
-import User from "../entities/User.entity";
+import User from "../entities/Usuario.entity";
 
 // la funcion retorna una promise (porque es asincrona al tener que ir a la db) de un array de usuarios
 export function getAllUsers(): Promise<User[]>{

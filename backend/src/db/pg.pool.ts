@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 import { HOST, DB_USER, DB_PASSWORD, DB_PORT, DB_DATABASE } from '../config';
-import User from '../entities/User.entity';
+import User from '../entities/Usuario.entity';
 import Club from '../entities/Club.entity';
 import Cancha from '../entities/Cancha.entity';
 import Deporte from '../entities/Deporte.entity';

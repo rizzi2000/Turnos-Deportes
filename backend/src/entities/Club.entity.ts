@@ -3,7 +3,7 @@ import Cancha from "./Cancha.entity";
 
 @Entity({ name: 'club' })
 export default class Club extends BaseEntity{
-    @PrimaryGeneratedColumn('uuid', {name: 'id_cl   ub'})
+    @PrimaryGeneratedColumn('uuid', {name: 'id_club'})
     idClub: string;
 
     @Column()
