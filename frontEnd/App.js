@@ -5,30 +5,31 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ImageBackground,
 } from "react-native";
-import { Button } from "react-native";
 import Boton from "./components/boton";
 import "react-native-gesture-handler";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Header } from "react-native-elements";
+import foto from "./assets/fondo.jpg" 
+import foto1 from "./assets/ch1.jpg" 
+
+
+
 
 export default function App() {
   const Stack = createNativeStackNavigator();
-
   return (
     <>
       <View style={styles.container}>
-        <View style={styles.containerNombreApp}>
-          <StatusBar style="auto" />
-          <Text>NOMBRE DE LA APP</Text>
-        </View>
+      <Header containerStyle = {styles.containerNombreApp}
+        leftComponent={{ icon: 'menu', color: '#fff' }}
+        centerComponent={{ text: 'Nombre App', style: { color: '#fff' } }}
+      />
         <View style={styles.containerDeportes}>
-          <View style={styles.Futbol}>
+          <ImageBackground source={foto} style={styles.containerDeportes}>
             <StatusBar style="auto" />
             <Boton onPress={() => {}} text="FUTBOL" />
-          </View>
-          <View style={styles.Padel}>
             <StatusBar style="auto" />
             <Boton
               onPress={() => {
@@ -36,16 +37,14 @@ export default function App() {
               }}
               text="PADEL"
             />
-          </View>
-          <View style={styles.Tenis}>
             <StatusBar style="auto" />
-            <Boton
+            <Boton source ={foto1} 
               onPress={() => {
                 alert("Abrir seccion de clubes con tenis");
               }}
               text="TENIS"
             />
-          </View>
+            </ImageBackground>
         </View>
       </View>
     </>
@@ -58,14 +57,20 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   containerNombreApp: {
-    flex: 0.2,
+    flex: 0.1,
     backgroundColor: "#7FFF00",
     alignItems: "center",
     justifyContent: "center",
   },
+
+  image:{
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center'
+  },
   containerDeportes: {
-    flex: 0.8,
-    backgroundColor: "#CCC",
+    flex: 1,
+    backgroundColor: "#000",
     marginLeft: 0,
   },
   Futbol: {

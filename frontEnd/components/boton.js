@@ -1,9 +1,17 @@
-import { TouchableOpacity, StyleSheet, Text, View } from "react-native";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+} from "react-native";
+import foto1 from "./assets/ch1.jpg" 
 
-export default function Boton({ onPress, text }) {
+
+export default function Boton({ onPress, text, source }) {
   return (
     <>
-      <TouchableOpacity style={styles.bttn} onPress={onPress}>
+      <TouchableOpacity style={styles.bttn} onPress={onPress} ImageBackground source={foto1}>
         <Text>{text}</Text>
       </TouchableOpacity>
     </>
@@ -13,7 +21,6 @@ export default function Boton({ onPress, text }) {
 const styles = StyleSheet.create({
   bttn: {
     flex: 1,
-    backgroundColor: "#6495ED",
     borderWidth: 2,
     borderRadius: 500,
     marginLeft: 20,
@@ -24,5 +31,7 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#CCC",
   },
+
 });
