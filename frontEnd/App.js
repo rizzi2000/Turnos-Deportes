@@ -12,7 +12,8 @@ import "react-native-gesture-handler";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Header } from "react-native-elements";
 import foto from "./assets/fondo.jpg" 
-import foto1 from "./assets/ch1.jpg" 
+import foto1 from "./assets/logoFutbol.jpg"
+
 
 
 
@@ -29,7 +30,8 @@ export default function App() {
         <View style={styles.containerDeportes}>
           <ImageBackground source={foto} style={styles.containerDeportes}>
             <StatusBar style="auto" />
-            <Boton onPress={() => {}} text="FUTBOL" />
+            <Boton 
+              onPress={() => {}} text="FUTBOL" source={foto1} />
             <StatusBar style="auto" />
             <Boton
               onPress={() => {
@@ -38,11 +40,12 @@ export default function App() {
               text="PADEL"
             />
             <StatusBar style="auto" />
-            <Boton source ={foto1} 
+            <Boton 
               onPress={() => {
                 alert("Abrir seccion de clubes con tenis");
               }}
               text="TENIS"
+              
             />
             </ImageBackground>
         </View>
