@@ -10,29 +10,30 @@ import {
 import Boton from "./components/boton";
 import "react-native-gesture-handler";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Header } from "react-native-elements";
+// import { Header } from "react-native-elements";
 import { useFonts } from 'expo-font';
 import fondo from "./assets/fondo.jpg" 
 import fondoFutbol from "./assets/fondofutbol.jpg"
 import fondoPadel from "./assets/fondoPadel.jpg"
 import fondoTenis from "./assets/fondoTenis.jpg"
-
-
-
-
+import MenuHamburguesa from "./components/menuHamburguesa";
+import Header from "./components/header";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
-  const [fontsLoaded] = useFonts({
-    Anta: require("./assets/fonts/Anta-Regular.ttf")
-  })
+  // const [fontsLoaded] = useFonts({
+  //   Anta: require("./assets/fonts/Anta-Regular.ttf")
+  // })
   return (
     <>
       <View style={styles.container}>
-      <Header containerStyle = {styles.containerNombreApp}
-        leftComponent={{ icon: 'menu', color: '#fff' }}
+      {/* <Header containerStyle = {styles.containerNombreApp}
+        leftComponent={<MenuHamburguesa/>}
         centerComponent={{ text: 'Nombre App', style: { fontFamily: "Anta", color: '#fff' } }}
-      />
+      /> */}
+
+      <Header />
+      {/* <MenuHamburguesa/> */}
         <View style={styles.containerDeportes}>
           <ImageBackground source={fondo} style={styles.containerDeportes}>
             <StatusBar style="auto" />
