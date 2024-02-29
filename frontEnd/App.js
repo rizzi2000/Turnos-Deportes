@@ -11,8 +11,11 @@ import Boton from "./components/boton";
 import "react-native-gesture-handler";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Header } from "react-native-elements";
-import foto from "./assets/fondo.jpg" 
-import foto1 from "./assets/logoFutbol.jpg"
+import { useFonts } from 'expo-font';
+import fondo from "./assets/fondo.jpg" 
+import fondoFutbol from "./assets/fondofutbol.jpg"
+import fondoPadel from "./assets/fondoPadel.jpg"
+import fondoTenis from "./assets/fondoTenis.jpg"
 
 
 
@@ -20,31 +23,34 @@ import foto1 from "./assets/logoFutbol.jpg"
 
 export default function App() {
   const Stack = createNativeStackNavigator();
+  const [fontsLoaded] = useFonts({
+    Anta: require("./assets/fonts/Anta-Regular.ttf")
+  })
   return (
     <>
       <View style={styles.container}>
       <Header containerStyle = {styles.containerNombreApp}
         leftComponent={{ icon: 'menu', color: '#fff' }}
-        centerComponent={{ text: 'Nombre App', style: { color: '#fff' } }}
+        centerComponent={{ text: 'Nombre App', style: { fontFamily: "Anta", color: '#fff' } }}
       />
         <View style={styles.containerDeportes}>
-          <ImageBackground source={foto} style={styles.containerDeportes}>
+          <ImageBackground source={fondo} style={styles.containerDeportes}>
             <StatusBar style="auto" />
             <Boton 
-              onPress={() => {}} text="FUTBOL" source={foto1} />
+              onPress={() => {}} text="FUTBOL" source={fondoFutbol} />
             <StatusBar style="auto" />
             <Boton
               onPress={() => {
                 alert("Abrir seccion de clubes con padel");
               }}
-              text="PADEL"
+              text="PADEL" source={fondoPadel}
             />
             <StatusBar style="auto" />
             <Boton 
               onPress={() => {
                 alert("Abrir seccion de clubes con tenis");
               }}
-              text="TENIS"
+              text="TENIS" source={fondoTenis}
               
             />
             </ImageBackground>
@@ -61,7 +67,7 @@ const styles = StyleSheet.create({
   },
   containerNombreApp: {
     flex: 0.1,
-    backgroundColor: "#7FFF00",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
   },
