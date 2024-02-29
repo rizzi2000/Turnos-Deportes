@@ -5,47 +5,55 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  ImageBackground,
 } from "react-native";
-import { Button } from "react-native";
 import Boton from "./components/boton";
 import "react-native-gesture-handler";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Header } from "react-native-elements";
+import { useFonts } from 'expo-font';
+import fondo from "./assets/fondo.jpg" 
+import fondoFutbol from "./assets/fondofutbol.jpg"
+import fondoPadel from "./assets/fondoPadel.jpg"
+import fondoTenis from "./assets/fondoTenis.jpg"
+
+
+
+
 
 export default function App() {
   const Stack = createNativeStackNavigator();
-
+  const [fontsLoaded] = useFonts({
+    Anta: require("./assets/fonts/Anta-Regular.ttf")
+  })
   return (
     <>
       <View style={styles.container}>
-        <View style={styles.containerNombreApp}>
-          <StatusBar style="auto" />
-          <Text>NOMBRE DE LA APP</Text>
-        </View>
+      <Header containerStyle = {styles.containerNombreApp}
+        leftComponent={{ icon: 'menu', color: '#fff' }}
+        centerComponent={{ text: 'Nombre App', style: { fontFamily: "Anta", color: '#fff' } }}
+      />
         <View style={styles.containerDeportes}>
-          <View style={styles.Futbol}>
+          <ImageBackground source={fondo} style={styles.containerDeportes}>
             <StatusBar style="auto" />
-            <Boton onPress={() => {}} text="FUTBOL" />
-          </View>
-          <View style={styles.Padel}>
+            <Boton 
+              onPress={() => {}} text="FUTBOL" source={fondoFutbol} />
             <StatusBar style="auto" />
             <Boton
               onPress={() => {
                 alert("Abrir seccion de clubes con padel");
               }}
-              text="PADEL"
+              text="PADEL" source={fondoPadel}
             />
-          </View>
-          <View style={styles.Tenis}>
             <StatusBar style="auto" />
-            <Boton
+            <Boton 
               onPress={() => {
                 alert("Abrir seccion de clubes con tenis");
               }}
-              text="TENIS"
+              text="TENIS" source={fondoTenis}
+              
             />
-          </View>
+            </ImageBackground>
         </View>
       </View>
     </>
@@ -58,14 +66,20 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   containerNombreApp: {
-    flex: 0.2,
-    backgroundColor: "#7FFF00",
+    flex: 0.1,
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
   },
+
+  image:{
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center'
+  },
   containerDeportes: {
-    flex: 0.8,
-    backgroundColor: "#CCC",
+    flex: 1,
+    backgroundColor: "#000",
     marginLeft: 0,
   },
   Futbol: {

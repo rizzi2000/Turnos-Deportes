@@ -1,10 +1,22 @@
-import { TouchableOpacity, StyleSheet, Text, View } from "react-native";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+} from "react-native";
+ 
 
-export default function Boton({ onPress, text }) {
+
+
+
+export default function Boton({ onPress, text, source }) {
   return (
     <>
       <TouchableOpacity style={styles.bttn} onPress={onPress}>
-        <Text>{text}</Text>
+        <ImageBackground source={source} style={styles.imagenFondo}>
+          <Text>{text}</Text> 
+        </ImageBackground>  
       </TouchableOpacity>
     </>
   );
@@ -13,16 +25,25 @@ export default function Boton({ onPress, text }) {
 const styles = StyleSheet.create({
   bttn: {
     flex: 1,
-    backgroundColor: "#6495ED",
-    borderWidth: 2,
-    borderRadius: 500,
-    marginLeft: 20,
-    marginRight: 20,
-    paddingLeft: 100,
-    paddingRight: 100,
-    marginTop: 50,
+    alignSelf: "center",
+    width: 400,
+    margin:10,
     marginBottom: 50,
-    alignItems: "center",
-    justifyContent: "center",
+    marginTop: 50,
+    borderRadius: 100,
+    borderWidth:1,
+    borderColor: "#F0F8FF",
+    overflow: "hidden",
   },
+  imagenFondo: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+
+  }
+
+
 });
